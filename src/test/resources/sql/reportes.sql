@@ -25,3 +25,8 @@ insert  into reporte
 values
 ('contactos', 'listar contactos', 'select * from contactos');
 
+insert into columna
+(numero, reporte, formato, nombre, tipo)
+values
+(1, 1, '%s', 'nombre', 'VARCHAR'),
+(2, 1, '%s', 'apellido', 'VARCHAR');
