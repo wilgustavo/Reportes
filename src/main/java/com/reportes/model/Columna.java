@@ -6,13 +6,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Columna
  */
 @Data
 @Entity
+@AllArgsConstructor @NoArgsConstructor
 public class Columna {
 
     @EmbeddedId

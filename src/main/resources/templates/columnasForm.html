@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Formulario para columnas</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Agregar columnas</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <form action="#" class="form-horizontal"
+              th:action="@{/columnas/save}"
+              th:object="${form}"
+              method="post">
+          <fieldset>
+            <span class="pull-right">
+                <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+                <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+            </span>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Formato</th>
+                </tr>
+                <tbody>
+                  <tr th:each="columna, itemStat : *{columnas}">
+                    <td><input type="text" th:placeholder="Title + ' ' + ${itemStat.count}" th:field="*{columnas[__${itemStat.index}__].nombre}" required></td>
+                    <td><input type="text" th:placeholder="Title + ' ' + ${itemStat.count}" th:field="*{columnas[__${itemStat.index}__].tipo}" required></td>
+                    <td><input type="text" th:placeholder="Title + ' ' + ${itemStat.count}" th:field="*{columnas[__${itemStat.index}__].formato}" required></td>
+                  </tr>
+                </tbody>
+              </thead>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
